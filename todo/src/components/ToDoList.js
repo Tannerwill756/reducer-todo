@@ -1,30 +1,21 @@
-import React, { useState, useReducer } from 'react';
-import reducer from '../reducers/reducer';
+import React from 'react';
 
-
-function ToDoList () {
-
-    const [ state, dispatch ] = useReducer(reducer, initialState);
-
-    cont [ newToDoItem, setNewToDoItem ] = useState('');
-
-    const handleChanges = e => {
-        e.preventDefault();
-    }
+function ToDoList (props) {
 
     return(
         <div>
-            <h1>MY TO-DO LIST</h1>
-            <form>
-                <input />
-                <button>add</button>                
-            </form>
-            <label />
+            {props.todoList.todos.map( item => (
+                <div key={item.id}>
+                    <ol>
+                        <li>
+                           {item.item} 
+                        </li>
+                    </ol>                    
+                </div>
+            ))}
+            
         </div>
     )
-
 }
-
-
 
 export default ToDoList;
