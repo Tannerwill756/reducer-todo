@@ -15,27 +15,27 @@ function App() {
 
   const changeHandler = event => {
     setInputText(event.target.value);
-}
+  }
 
-const submitHandler = event => {
+  const submitHandler = event => {
+      event.preventDefault();    
+      dispatch({ type: "ADD_TODO", payload: inputText });
+      setInputText("");
+  }
+
+  const clearHandler = event => {
+      event.preventDefault();
+      event.clear();
+  }
+
+  const toggleItem = (id) => {
+    dispatch( { type:"TOGGLE_ITEM", payload: id})
+  }
+
+  const clearCompleted = event => {
     event.preventDefault();
-    setInputText("");
-    dispatch({ type: "ADD_TODO", payload: inputText });
-}
-
-const clearHandler = event => {
-    event.preventDefault();
-    event.clear();
-}
-
-const toggleItem = (id) => {
-  dispatch( { type:"TOGGLE_ITEM", payload: id})
-}
-
-const clearCompleted = event => {
-  event.preventDefault();
-  dispatch({ type: 'CLEAR_COMPLETED' });
-};
+    dispatch({ type: 'CLEAR_COMPLETED' });
+  };
 
   return (
     <div className="App">
