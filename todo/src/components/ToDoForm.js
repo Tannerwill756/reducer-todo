@@ -17,7 +17,7 @@ function ToDoForm (props) {
                 <button type='submit'>add</button> 
                              
             </form>
-            <button onClick={props.clearHandler}>clear</button>  
+            <button onClick={props.clear}>clear</button>  
         </div>
     )
 

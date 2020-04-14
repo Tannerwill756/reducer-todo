@@ -27,13 +27,21 @@ const clearHandler = event => {
     event.preventDefault();
     event.clear();
 }
-  
+
+const toggleItem = (id) => {
+  dispatch( { type:"TOGGLE_ITEM", payload: id})
+}
+
+const clearCompleted = event => {
+  event.preventDefault();
+  dispatch({ type: 'CLEAR_COMPLETED' });
+};
 
   return (
     <div className="App">
       <h1>MY TO-DO LIST</h1>
-      <ToDoForm changeHandler={changeHandler} submitHandler={submitHandler} clearHandler={clearHandler} dispatch={dispatch}/>
-      <ToDoList todoList={state} dispatch={dispatch}/>
+      <ToDoForm changeHandler={changeHandler} submitHandler={submitHandler} clearHandler={clearHandler} dispatch={dispatch} clear={clearCompleted}/>
+      <ToDoList todoList={state} dispatch={dispatch} toggleItem={toggleItem}/>
     </div>
   );
 }
