@@ -6,11 +6,11 @@ function ToDoList (props) {
         <div>
             {props.todoList.todos.map( item => (
                 <div key={item.id}>
-                    <ol>
+                    <ul>
                         <li>
                            {item.item} 
                         </li>
-                    </ol>                    
+                    </ul>                    
                 </div>
             ))}
             

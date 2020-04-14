@@ -27,19 +27,22 @@ export const reducer = ( state, action) => {
         //     }
         
         case 'ADD_TODO':
-            return{
+            return {
                 ...state,
-                todos: [...state.todos, action.payload]
-            }
+                todos: [
+                  ...state.todos,
+                  {
+                    item: action.payload,
+                    completed: false,
+                    id: Date.now(),
+                  },
+                ],
+              };
         // case 'CLEAR_COMPLETED':
         //     return{
 
         //     }
-        case 'UPDATE_TODO':
-            return{
-                ...state,
-                    item: action.payload
-            }        
+              
 
         default:
             return state;
